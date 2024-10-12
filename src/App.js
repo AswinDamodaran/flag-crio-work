@@ -6,7 +6,7 @@ function App() {
   const [flags, setFlags] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
 
-  const fetchAPI = async () => {
+  const getCountries = async () => {
     try {
       const res = await fetch(
         "https://xcountries-backend.azurewebsites.net/all"
@@ -25,7 +25,7 @@ function App() {
   );
 
   useEffect(() => {
-    fetchAPI();
+    getCountries();
   }, []);
 
   return (
