@@ -1,10 +1,10 @@
 import React from 'react'
-import styles from "./Countrycard.module.css"
+import './Countrycard.css'
 
 function Countrycard({image,name}) {
   return (
-    <div className={styles.countryCard}>
-        <img className={styles.image} src={image} alt={name} />
+    <div className="countryCard">
+        <img className="image" src={image} alt={name} />
         <h4>{name}</h4>
     </div>
   )
