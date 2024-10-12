@@ -11,6 +11,7 @@ function App() {
       const res = await fetch(
         "https://xcountries-backend.azurewebsites.net/all"
       );
+      console.log("API request made");
       const data = await res.json();
       // console.log(data)
       setFlags(data);
