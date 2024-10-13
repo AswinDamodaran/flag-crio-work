@@ -9,7 +9,7 @@ function App() {
   const getCountries = async () => {
     try {
       const res = await fetch(
-        "https://xcountries-backend.azurewebsites.net/all"
+        "https://restcountries.com/v3.1/all"
       );
       console.log("API request made");
       const data = await res.json();
@@ -21,7 +21,7 @@ function App() {
   };
 
   const filteredFlags = flags.filter((flag) =>
-    flag.name.toLowerCase().includes(searchQuery.toLowerCase())
+    flag.name.common.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   useEffect(() => {
@@ -58,7 +58,7 @@ function App() {
         }}
       >
         {filteredFlags.map((flag, idx) => (
-          <Countrycard key={idx} image={flag.flag} name={flag.name} />
+          <Countrycard key={idx} image={flag.flags.png} name={flag.name.common} />
         ))}
       </div>
     </div>
