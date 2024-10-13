@@ -20,7 +20,7 @@ function App() {
     }
   };
 
-  const filteredFlags = flags.filter(flag =>
+  const filteredFlags = flags.filter((flag) =>
     flag.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
@@ -29,21 +29,38 @@ function App() {
   }, []);
 
   return (
-    <div
-      className="App"
-      style={{
-        display: "flex",
-        flexWrap: "wrap",
-        width: "100%",
-        justifyContent: "center",
-      }}
-    >
-    
-
-      
-      {filteredFlags.map((flag, idx) => (
-        <Countrycard key={idx} image={flag.flag} name={flag.name} />
-      ))}
+    <div>
+      <div
+          style={{
+          display: "flex",
+          flexWrap: "wrap",
+          width: "100%",
+          justifyContent: "center",
+        }}
+      >
+        {/* {" "} */}
+        <input
+          className="search"
+          type="text"
+          placeholder="Search for a country..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          style={{ marginBottom: "20px", padding: "10px", width: "300px" }}
+        />
+      </div>
+      <div
+        className="App"
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          width: "100%",
+          justifyContent: "center",
+        }}
+      >
+        {filteredFlags.map((flag, idx) => (
+          <Countrycard key={idx} image={flag.flag} name={flag.name} />
+        ))}
+      </div>
     </div>
   );
 }
